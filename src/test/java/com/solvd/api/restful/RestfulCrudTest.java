@@ -15,6 +15,11 @@ public class RestfulCrudTest {
 
         PostObjectData postObjectData = new PostObjectData("post-object-data.json", APPLICATION_JSON);
 
+        postObjectData.addProperty("name", "Apple MacBook Pro 16");
+        postObjectData.addProperty("year", "2019");
+        postObjectData.addProperty("cpuModel", "Intel Core i9");
+        postObjectData.addProperty("diskSize", "1 TB");
+
         postObjectData.expectResponseStatus(HttpResponseStatusType.OK_200);
 
         postObjectData.callAPI();
