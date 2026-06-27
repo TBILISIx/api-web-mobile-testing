@@ -13,13 +13,15 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='password']")
     private ExtendedWebElement passwordField;
 
+    @FindBy(xpath = "//div[@class='error-message-container']")
+    private ExtendedWebElement errorText;
+
     @FindBy(xpath = "//input[@id='login-button']")
     private ExtendedWebElement loginButton;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
 
     public LoginPage typeUsername(String username) {
         this.usernameField.type(username);
@@ -31,14 +33,29 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    public String getErrorText() {
+        return errorText.getText();
+    }
+
     public HomePage clickLoginButton() {
         this.loginButton.click();
         return new HomePage(getDriver());
     }
 
-    public HomePage login (String username, String password) {
+    // for the positive path — login expected to succeed
+    public HomePage login(String username, String password) {
         typeUsername(username);
         typePassword(password);
-        return clickLoginButton();
+        loginButton.click();
+        return new HomePage(getDriver());
     }
+
+    // for negative tests — login expected to fail, stay on this page
+    public LoginPage loginExpectingFailure(String username, String password) {
+        typeUsername(username);
+        typePassword(password);
+        loginButton.click();
+        return this;
+    }
+
 }
