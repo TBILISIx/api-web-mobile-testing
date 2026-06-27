@@ -1,8 +1,8 @@
 package com.solvd.webtesting.saucedemosite.page;
 
 import com.solvd.webtesting.saucedemosite.components.BurgerMenu;
+import com.solvd.webtesting.saucedemosite.components.CartItem;
 import com.solvd.webtesting.saucedemosite.components.ProductCard;
-import com.solvd.webtesting.saucedemosite.components.ShoppingCart;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -21,10 +21,13 @@ public class HomePage extends AbstractPage {
     private BurgerMenu burgerMenu;
 
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a")
-    private ShoppingCart shoppingCart;
+    private CartItem cartItemLink;
 
     @FindBy(xpath = "//div[@class='inventory_item']")
     private List<ProductCard> productCards;
+
+    @FindBy(xpath = "//select[@class='product_sort_container']")
+    private ExtendedWebElement sortProductCardsDropdown;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -50,12 +53,12 @@ public class HomePage extends AbstractPage {
     }
 
     // shopping cart + click
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
+    public CartItem getShoppingCart() {
+        return cartItemLink;
     }
 
     public void openShoppingCart() {
-        shoppingCart.click();
+        cartItemLink.click();
     }
 
     public void waitUntilCardsPresent() {

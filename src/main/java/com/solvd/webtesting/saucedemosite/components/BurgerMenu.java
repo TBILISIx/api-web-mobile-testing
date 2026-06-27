@@ -1,5 +1,6 @@
 package com.solvd.webtesting.saucedemosite.components;
 
+import com.solvd.webtesting.saucedemosite.page.LoginPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
@@ -35,8 +36,9 @@ public class BurgerMenu extends AbstractUIObject {
         about.click();
     }
 
-    public void clickLogout() {
+    public LoginPage clickLogout() {
         logout.click();
+        return new LoginPage(getDriver());
     }
 
     public void clickResetApp() {
