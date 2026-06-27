@@ -3,8 +3,8 @@ package com.solvd.webtesting.saucedemosite.page;
 import com.solvd.webtesting.saucedemosite.components.BurgerMenu;
 import com.solvd.webtesting.saucedemosite.components.ProductCard;
 import com.solvd.webtesting.saucedemosite.components.ShoppingCart;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,6 +13,9 @@ import java.time.Duration;
 import java.util.List;
 
 public class HomePage extends AbstractPage {
+
+    @FindBy(xpath = "//div[@id='react-burger-menu-btn']")
+    private ExtendedWebElement burgerMenuButton;
 
     @FindBy(xpath = "//div[@class='bm-menu-wrap']")
     private BurgerMenu burgerMenu;
@@ -27,12 +30,32 @@ public class HomePage extends AbstractPage {
         super(driver);
     }
 
+    // burger menu button + click
+    public ExtendedWebElement getBurgerMenuButton() {
+        return burgerMenuButton;
+    }
+
+    public void openBurgerMenu() {
+        burgerMenuButton.click();
+    }
+
+    // burger menu with its options
     public BurgerMenu getBurgerMenu() {
         return burgerMenu;
     }
 
+    // product cards
     public List<ProductCard> getProductCards() {
         return productCards;
+    }
+
+    // shopping cart + click
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void openShoppingCart() {
+        shoppingCart.click();
     }
 
     public void waitUntilCardsPresent() {

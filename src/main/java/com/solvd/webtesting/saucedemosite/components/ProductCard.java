@@ -8,22 +8,22 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductCard extends AbstractUIObject {
 
-    @FindBy(xpath = "//div[@class='inventory_item_img']//img")
+    @FindBy(xpath = ".//div[@class='inventory_item_img']//img")
     private ExtendedWebElement productImage;
 
-    @FindBy(xpath = "//div[@class='inventory_item_img']//a")
+    @FindBy(xpath = ".//div[@class='inventory_item_img']//a")
     private ExtendedWebElement productImageLink;
 
-    @FindBy(xpath = "//div[@class='inventory_item_label']//a")
+    @FindBy(xpath = ".//div[@class='inventory_item_label']//a")
     private ExtendedWebElement productNameLink;
 
-    @FindBy(xpath = "//div[@class='inventory_item_label']//div[contains(@data-test, 'inventory-item-desc')]")
+    @FindBy(xpath = ".//div[@class='inventory_item_label']//div[contains(@data-test, 'inventory-item-desc')]")
     private ExtendedWebElement productDescription;
 
-    @FindBy(xpath = "//div[contains(@data-test,'inventory-item-price')]")
+    @FindBy(xpath = ".//div[contains(@data-test,'inventory-item-price')]")
     private ExtendedWebElement productPrice;
 
-    @FindBy(xpath = "//button[contains(@data-test,'add-to-cart')]")
+    @FindBy(xpath = ".//button[contains(@data-test,'add-to-cart')]")
     private ExtendedWebElement addToCartButton;
 
     public ProductCard(WebDriver driver, SearchContext searchContext) {
