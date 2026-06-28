@@ -1,0 +1,9 @@
+[2026-06-28 06:22:38] [1] [WARN] Reporting disabled: using no op test run registrar
+[2026-06-28 06:22:38] [1] [INFO] TEST [api-web-mobile-testing - successfulLoginTest] STARTED at [22:22:38 2026-06-28]
+[2026-06-28 06:22:38] [1] [INFO] Starting driver session...
+[2026-06-28 06:22:39] [1] [INFO] Driver session started.
+[2026-06-28 06:22:39] [1] [INFO] INFO: opening url 'https://www.saucedemo.com'
+[2026-06-28 06:22:40] [1] [INFO] Keys 'standard_user' are sent to element 'usernameField'.
+[2026-06-28 06:22:41] [1] [INFO] Keys 'secret_sauce' are sent to element 'passwordField'.
+[2026-06-28 06:22:41] [1] [INFO] Element 'loginButton' is clicked.
+[2026-06-28 06:22:41] [1] [INFO] TEST [api-web-mobile-testing - successfulLoginTest] PASSED at [22:22:41 2026-06-28]

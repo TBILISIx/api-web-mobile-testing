@@ -1,0 +1,11 @@
+[2026-06-28 06:22:41] [1] [WARN] Reporting disabled: using no op test run registrar
+[2026-06-28 06:22:41] [1] [INFO] TEST [api-web-mobile-testing - unSuccessfulLoginTest] STARTED at [22:22:41 2026-06-28]
+[2026-06-28 06:22:41] [1] [INFO] Starting driver session...
+[2026-06-28 06:22:41] [1] [INFO] Driver session started.
+[2026-06-28 06:22:41] [1] [INFO] INFO: opening url 'https://www.saucedemo.com'
+[2026-06-28 06:22:43] [1] [INFO] Keys 'Greetings_Neo o_^ ' are sent to element 'usernameField'.
+[2026-06-28 06:22:43] [1] [INFO] Keys 'secret_sauce' are sent to element 'passwordField'.
+[2026-06-28 06:22:43] [1] [INFO] Element 'loginButton' is clicked.
+[2026-06-28 06:22:45] [1] [WARN] Actual URL differs from expected one. Expected 'https://www.saucedemo.com/inventory.html' but found 'https://www.saucedemo.com/'
+[2026-06-28 06:22:45] [1] [ERROR] In case of unsuccessful login attempt will fetch error message : Epic sadface: Username and password do not match any user in this service
+[2026-06-28 06:22:45] [1] [INFO] TEST [api-web-mobile-testing - unSuccessfulLoginTest] PASSED at [22:22:45 2026-06-28]
