@@ -3,26 +3,32 @@ package com.solvd.webtesting.saucedemosite.page;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutInfoPage extends AbstractPage {
 
+    @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'firstName')]")
     private ExtendedWebElement firstNameField;
 
+    @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'lastName')]")
     private ExtendedWebElement lastNameField;
 
+    @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'postalCode')]")
     private ExtendedWebElement zipCodeField;
 
-    private ExtendedWebElement continueButton;
+    @FindBy(xpath = "//div[@class='error-message-container']")
+    private ExtendedWebElement errorMessage;
 
+    @FindBy(xpath = "//div[@class='checkout_buttons']/button[contains(@data-test,'cancel')]")
     private ExtendedWebElement cancelButton;
 
-    private ExtendedWebElement errorMessage;
+    @FindBy(xpath = "//div[@class='checkout_buttons']/input[contains(@data-test,'continue')]")
+    private ExtendedWebElement continueButton;
+
 
     public CheckoutInfoPage(WebDriver driver) {
         super(driver);
     }
-
-
 
     public CheckoutOverviewPage continueCheckout(String firstName, String lastName, String zip) {
 
