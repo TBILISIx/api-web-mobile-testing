@@ -1,0 +1,88 @@
+[2026-06-28 04:49:45] [1] [WARN] Reporting disabled: using no op test run registrar
+[2026-06-28 04:49:45] [1] [INFO] TEST [api-web-mobile-testing - fullHappyPathTestWhereUserLogsInAddsItemsToCartSuccessfullyCheckoutAndLogsOut] STARTED at [20:49:45 2026-06-28]
+[2026-06-28 04:49:45] [1] [INFO] Starting driver session...
+[2026-06-28 04:49:46] [1] [INFO] Driver session started.
+[2026-06-28 04:49:47] [1] [INFO] INFO: opening url 'https://www.saucedemo.com'
+[2026-06-28 04:49:48] [1] [INFO] Keys 'standard_user' are sent to element 'usernameField'.
+[2026-06-28 04:49:48] [1] [INFO] Keys 'secret_sauce' are sent to element 'passwordField'.
+[2026-06-28 04:49:48] [1] [INFO] Element 'loginButton' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Element 'cartIconLink' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Element 'checkoutButton' is clicked.
+[2026-06-28 04:49:49] [1] [INFO] Keys 'WAKE UP NEO' are sent to element 'firstNameField'.
+[2026-06-28 04:49:49] [1] [ERROR] TEST [api-web-mobile-testing - fullHappyPathTestWhereUserLogsInAddsItemsToCartSuccessfullyCheckoutAndLogsOut] FAILED at [20:49:49 2026-06-28] - invalid selector: Unable to locate an element with the xpath expression //div[@class='form_group']//input[@id='lastName] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//div[@class='form_group']//input[@id='lastName]' is not a valid XPath expression.
+  (Session info: chrome=149.0.7827.201)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.18'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [8a09bf6c7195ad841f76a65b83946785, findElement {using=xpath, value=//div[@class='form_group']//input[@id='lastName]}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 149.0.7827.201, chrome: {chromedriverVersion: 149.0.7827.201 (6a7b3dbec3b..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:8621}, goog:processID: 10220, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: Windows 11, proxy: Proxy(), se:bidiEnabled: false, se:cdp: ws://192.168.1.2:4444/sessi..., se:cdpVersion: 149.0.7827.201, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8a09bf6c7195ad841f76a65b83946785
+
+java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+com.zebrunner.carina.webdriver.listener.EventFiringSeleniumCommandExecutor.execute(EventFiringSeleniumCommandExecutor.java:52)
+org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:569)
+org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:249)
+org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48)
+org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxy$2(WebDriverDecorator.java:321)
+net.bytebuddy.renamed.java.lang.Object$ByteBuddy$aoGrsC2x.findElement(Unknown Source)
+org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:194)
+org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:190)
+org.openqa.selenium.support.ui.ExpectedConditions$49.apply(ExpectedConditions.java:1396)
+org.openqa.selenium.support.ui.ExpectedConditions$49.apply(ExpectedConditions.java:1390)
+org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+com.zebrunner.carina.webdriver.helper.IWaitHelper.waitUntil(IWaitHelper.java:71)
+com.zebrunner.carina.webdriver.helper.IWaitHelper.waitUntil(IWaitHelper.java:37)
+com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.doAction(ExtendedWebElement.java:1416)
+com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.type(ExtendedWebElement.java:987)
+com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.type(ExtendedWebElement.java:972)
+com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.type(ExtendedWebElement.java:958)
+com.solvd.webtesting.saucedemosite.page.CheckoutInfoPage.continueCheckout(CheckoutInfoPage.java:40)
+com.solvd.webtesting.SauceDemoTest.fullHappyPathTestWhereUserLogsInAddsItemsToCartSuccessfullyCheckoutAndLogsOut(SauceDemoTest.java:117)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:569)
+org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+org.testng.TestRunner.privateRun(TestRunner.java:744)
+org.testng.TestRunner.run(TestRunner.java:616)
+org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+org.testng.SuiteRunner.run(SuiteRunner.java:312)
+org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+org.testng.TestNG.runSuites(TestNG.java:1112)
+org.testng.TestNG.run(TestNG.java:1079)
+com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)

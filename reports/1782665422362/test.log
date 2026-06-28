@@ -1,0 +1,18 @@
+[2026-06-28 04:50:22] [1] [INFO] 
+============= Basic configuration =============
+env=PROD
+=========== WebDriver configuration ===========
+browser=chrome
+selenium_url=http://localhost:4444/wd/hub
+-------------- Driver capabilities ------------
+===============================================
+
+[2026-06-28 04:50:22] [1] [WARN] Reporting disabled: using no op test run registrar
+[2026-06-28 04:50:24] [1] [INFO] [TestNG] Running:
+  C:\Users\Admin\AppData\Local\JetBrains\IntelliJIdea2026.1\temp-testng-customsuite.xml
+
+[2026-06-28 04:50:24] [1] [INFO] Set thread-count=1
+[2026-06-28 04:50:24] [1] [INFO] Set data-provider-thread-count=1
+[2026-06-28 04:50:24] [1] [INFO] CARINA_CORE_VERSION: 1.3.0
+[2026-06-28 04:51:09] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2026-06-28 04:51:09] [1] [INFO] RESULT #1: TEST [api-web-mobile-testing - fullHappyPathTestWhereUserLogsInAddsItemsToCartSuccessfullyCheckoutAndLogsOut] FAIL [log=file://D:\java-solvd\api-web-mobile-testing\reports\1782665422362/b87a24ec-7d39-4781-bb29-b71aadf3c9b9/test.log]

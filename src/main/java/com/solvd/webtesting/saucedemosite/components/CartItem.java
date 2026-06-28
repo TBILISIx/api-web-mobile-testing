@@ -8,17 +8,18 @@ import org.openqa.selenium.support.FindBy;
 
 public class CartItem extends AbstractUIObject {
 
-    @FindBy(xpath = ".//div[@class='cart_list']//div[@class='cart_quantity']")
+    @FindBy(xpath = ".//div[@class='cart_quantity']")
     private ExtendedWebElement itemQuantity;
 
-    @FindBy(xpath = ".//div[@class='cart_list']//a")
-    private ExtendedWebElement itemNameLink; // not using right now
+    @FindBy(xpath = ".//div[@class='inventory_item_name']")
+    private ExtendedWebElement itemNameLink;
 
-    @FindBy(xpath = ".//div[@class='cart_list']//div[@class='inventory_item_price']")
+    @FindBy(xpath = ".//div[@class='inventory_item_price']")
     private ExtendedWebElement itemPrice;
 
-    @FindBy(xpath = ".//div[@class='cart_list']//button[@class='btn btn_secondary btn_small cart_button']")
+    @FindBy(xpath = ".//button[@class='btn btn_secondary btn_small cart_button']")
     private ExtendedWebElement removeButton;
+
 
     public String getItemQuantityText() {
         return itemQuantity.getText();

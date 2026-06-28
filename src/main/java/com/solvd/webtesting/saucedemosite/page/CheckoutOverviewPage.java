@@ -1,6 +1,7 @@
 package com.solvd.webtesting.saucedemosite.page;
 
 import com.solvd.webtesting.saucedemosite.components.CartItem;
+import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class CheckoutOverviewPage extends AbstractPage {
 
+    @FindBy(xpath = "//div[@class='cart_item']")
     private List<CartItem> cartItems;
 
     @FindBy(xpath = "//div[@class='summary_info']/div[@class='summary_subtotal_label']")
@@ -21,17 +23,21 @@ public class CheckoutOverviewPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='summary_info']/div[@class='summary_total_label']")
     private ExtendedWebElement totalLabel;
 
-    @FindBy(xpath = "//div[@class='summary_info']/div[@class='cart_footer']/button[contains(@data-test, 'finish')]")
+    @FindBy(xpath = "//div[@class='cart_footer']/button[@data-test='finish']")
     private ExtendedWebElement finishButton;
 
-    @FindBy(xpath = "//div[@class='summary_info']/div[@class='cart_footer']/button[contains(@data-test, 'cancel')]")
+    @FindBy(xpath = "//div[@class='cart_footer']/button[@data-test='cancel']")
     private ExtendedWebElement cancelButton;
 
     public CheckoutOverviewPage(WebDriver driver) {
         super(driver);
+        setPageAbsoluteURL(Configuration.getRequired("saucedemo_checkout_step_two_url"));
     }
 
 
+    public List<String> getOverviewItemNames() {
+        return cartItems.stream().map(CartItem::getItemNameLinkText).toList();
+    }
 
     public String getItemTotalText() {
         return itemTotalLabel.getText();

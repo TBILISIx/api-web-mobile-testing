@@ -23,7 +23,7 @@ public class ProductCard extends AbstractUIObject {
     @FindBy(xpath = ".//div[contains(@data-test,'inventory-item-price')]")
     private ExtendedWebElement productPrice;
 
-    @FindBy(xpath = ".//button[contains(@data-test,'add-to-cart')]")
+    @FindBy(xpath = ".//button")
     private ExtendedWebElement addToCartButton;
 
     public ProductCard(WebDriver driver, SearchContext searchContext) {
@@ -74,10 +74,14 @@ public class ProductCard extends AbstractUIObject {
         return productPrice.getText();
     }
 
-    // Add to Cart Button
+    // Add to Cart Button + in String
 
-    public ExtendedWebElement getAddToCartButton() {
-        return addToCartButton;
+    public void clickAddToCart() {
+        addToCartButton.click();
+    }
+
+    public String getAddToCartButtonText() {
+        return addToCartButton.getText();
     }
 
 }

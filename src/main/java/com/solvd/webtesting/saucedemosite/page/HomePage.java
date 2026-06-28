@@ -1,8 +1,8 @@
 package com.solvd.webtesting.saucedemosite.page;
 
 import com.solvd.webtesting.saucedemosite.components.BurgerMenu;
-import com.solvd.webtesting.saucedemosite.components.CartItem;
 import com.solvd.webtesting.saucedemosite.components.ProductCard;
+import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +14,17 @@ import java.util.List;
 
 public class HomePage extends AbstractPage {
 
-    @FindBy(xpath = "//div[@id='react-burger-menu-btn']")
+    @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
     private ExtendedWebElement burgerMenuButton;
 
     @FindBy(xpath = "//div[@class='bm-menu-wrap']")
     private BurgerMenu burgerMenu;
 
+    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
+    private ExtendedWebElement cartBadge;
+
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a")
-    private CartItem cartItemLink;
+    private ExtendedWebElement cartIconLink;
 
     @FindBy(xpath = "//div[@class='inventory_item']")
     private List<ProductCard> productCards;
@@ -31,6 +34,7 @@ public class HomePage extends AbstractPage {
 
     public HomePage(WebDriver driver) {
         super(driver);
+        setPageAbsoluteURL(Configuration.getRequired("saucedemo_homepage_url"));
     }
 
     // burger menu button + click
@@ -53,12 +57,25 @@ public class HomePage extends AbstractPage {
     }
 
     // shopping cart + click
-    public CartItem getShoppingCart() {
-        return cartItemLink;
+    public ExtendedWebElement getCartIconLink() {
+        return cartIconLink;
     }
 
-    public void openShoppingCart() {
-        cartItemLink.click();
+    public CartPage openShoppingCart() {
+        cartIconLink.click();
+        return new CartPage(getDriver());
+    }
+
+    public String getCartBadgeCountText() {
+        return cartBadge.getText();
+    }
+
+    public boolean isCartBadgeDisplayed() {
+        return cartBadge.isElementPresent(2);
+    }
+
+    public void sortBy(SortOption option) {
+        sortProductCardsDropdown.select(option.getLabel());
     }
 
     public void waitUntilCardsPresent() {

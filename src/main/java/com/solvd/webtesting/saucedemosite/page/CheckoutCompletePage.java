@@ -1,5 +1,6 @@
 package com.solvd.webtesting.saucedemosite.page;
 
+import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class CheckoutCompletePage extends AbstractPage {
 
     public CheckoutCompletePage(WebDriver driver) {
         super(driver);
+        setPageAbsoluteURL(Configuration.getRequired("saucedemo_checkout_complete_url"));
     }
 
     public String getCompleteHeaderText() {
