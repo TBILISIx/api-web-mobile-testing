@@ -1,5 +1,6 @@
 package com.solvd.webtesting.saucedemosite.page;
 
+import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='password']")
     private ExtendedWebElement passwordField;
 
-    @FindBy(xpath = "//div[@class='error-message-container']")
+    @FindBy(xpath = "//div[@class='error-message-container error']//h3")
     private ExtendedWebElement errorText;
 
     @FindBy(xpath = "//input[@id='login-button']")
@@ -21,6 +22,7 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        setPageAbsoluteURL(Configuration.getRequired("saucedemo_url"));
     }
 
     public LoginPage typeUsername(String username) {

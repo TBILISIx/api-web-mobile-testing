@@ -1,0 +1,15 @@
+[2026-06-28 04:52:36] [1] [WARN] Reporting disabled: using no op test run registrar
+[2026-06-28 04:52:36] [1] [INFO] TEST [api-web-mobile-testing - fullHappyPathTestWhereUserLogsInAddsItemsToCartSuccessfullyCheckoutAndLogsOut] STARTED at [20:52:36 2026-06-28]
+[2026-06-28 04:52:36] [1] [INFO] Starting driver session...
+[2026-06-28 04:52:38] [1] [INFO] Driver session started.
+[2026-06-28 04:52:38] [1] [INFO] INFO: opening url 'https://www.saucedemo.com'
+[2026-06-28 04:52:39] [1] [INFO] Keys 'standard_user' are sent to element 'usernameField'.
+[2026-06-28 04:52:39] [1] [INFO] Keys 'secret_sauce' are sent to element 'passwordField'.
+[2026-06-28 04:52:39] [1] [INFO] Element 'loginButton' is clicked.
+[2026-06-28 04:52:39] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:52:40] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:52:40] [1] [INFO] Element 'addToCartButton' is clicked.
+[2026-06-28 04:52:40] [1] [INFO] Element 'cartIconLink' is clicked.
+[2026-06-28 04:52:40] [1] [INFO] Element 'checkoutButton' is clicked.
+[2026-06-28 04:53:00] [1] [WARN] Actual URL differs from expected one. Expected 'https://www.saucedemo.com/checkout-step-one.html' but found 'https://www.saucedemo.com/cart.html'
+[2026-06-28 04:53:41] [1] [ERROR] FAIL: type - waitCondition for element 'firstNameField (By.xpath: //div[@class='form_group']//input[@id='first-name'])' not satisfied!

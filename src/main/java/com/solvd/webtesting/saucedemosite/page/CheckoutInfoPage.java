@@ -1,5 +1,6 @@
 package com.solvd.webtesting.saucedemosite.page;
 
+import com.zebrunner.carina.utils.config.Configuration;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class CheckoutInfoPage extends AbstractPage {
 
-    @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'firstName')]")
+    @FindBy(xpath = "//div[@class='form_group']//input[@id='first-name']")
     private ExtendedWebElement firstNameField;
 
     @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'lastName')]")
@@ -28,6 +29,7 @@ public class CheckoutInfoPage extends AbstractPage {
 
     public CheckoutInfoPage(WebDriver driver) {
         super(driver);
+        setPageAbsoluteURL(Configuration.getRequired("saucedemo_checkout_step_one_url"));
     }
 
     public CheckoutOverviewPage continueCheckout(String firstName, String lastName, String zip) {
