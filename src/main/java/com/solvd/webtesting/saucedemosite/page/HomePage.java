@@ -37,7 +37,7 @@ public class HomePage extends AbstractPage {
         setPageAbsoluteURL(Configuration.getRequired("saucedemo_homepage_url"));
     }
 
-    // burger menu button + click
+    // burger menu button + click )
     public ExtendedWebElement getBurgerMenuButton() {
         return burgerMenuButton;
     }
@@ -51,7 +51,7 @@ public class HomePage extends AbstractPage {
         return burgerMenu;
     }
 
-    // product cards
+    // product cards ;)
     public List<ProductCard> getProductCards() {
         return productCards;
     }
