@@ -123,6 +123,7 @@ public class SauceDemoTest extends AbstractTest {
 
         softAssert.assertAll();
 
+        System.out.println("Hello Neo :) ");
 
     }
 
