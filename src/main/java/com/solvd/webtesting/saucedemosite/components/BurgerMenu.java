@@ -42,6 +42,7 @@ public class BurgerMenu extends AbstractUIObject {
     }
 
     public void clickResetApp() {
+        resetApp.assertElementPresent();
         resetApp.click();
     }
 

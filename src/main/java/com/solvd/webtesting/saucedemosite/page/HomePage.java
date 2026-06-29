@@ -20,7 +20,7 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//div[@class='bm-menu-wrap']")
     private BurgerMenu burgerMenu;
 
-    @FindBy(xpath = "//span[@class='shopping_cart_badge']")
+    @FindBy(xpath = "//div[@id='shopping_cart_container']")
     private ExtendedWebElement cartBadge;
 
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a")
@@ -72,6 +72,10 @@ public class HomePage extends AbstractPage {
 
     public boolean isCartBadgeDisplayed() {
         return cartBadge.isElementPresent(2);
+    }
+
+    public void clickSortProductCards() {
+        sortProductCardsDropdown.click();
     }
 
     public void sortBy(SortOption option) {
