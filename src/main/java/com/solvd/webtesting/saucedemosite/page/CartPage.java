@@ -25,6 +25,11 @@ public class CartPage extends AbstractPage {
         setPageAbsoluteURL(Configuration.getRequired("saucedemo_shopping_cart_url"));
     }
 
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
     // map cartItems -> getItemNameText()
     public List<String> getCartItemNames() {
         return cartItems.stream().map(CartItem::getItemNameLinkText).toList();
