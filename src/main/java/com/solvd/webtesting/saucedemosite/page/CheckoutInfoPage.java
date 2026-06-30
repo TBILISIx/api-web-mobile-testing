@@ -17,7 +17,7 @@ public class CheckoutInfoPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='checkout_info']//input[contains(@data-test, 'postalCode')]")
     private ExtendedWebElement zipCodeField;
 
-    @FindBy(xpath = "//div[@class='error-message-container']")
+    @FindBy(xpath = "//div[@class='error-message-container error']")
     private ExtendedWebElement errorMessage;
 
     @FindBy(xpath = "//div[@class='checkout_buttons']/button[contains(@data-test,'cancel')]")

@@ -1,5 +1,6 @@
 package com.solvd.webtesting;
 
+import com.solvd.webtesting.saucedemosite.components.ProductCard;
 import com.solvd.webtesting.saucedemosite.page.*;
 import com.solvd.webtesting.util.ChromeOptionsFactory;
 import com.zebrunner.carina.core.AbstractTest;
@@ -36,6 +37,8 @@ public class SauceDemoTest extends AbstractTest {
     @Test(description = "This is test for unsuccessful login")
     public void unSuccessfulLoginTest() {
 
+        SoftAssert softAssert = new SoftAssert();
+
         WebDriver driver = getDriver("default", ChromeOptionsFactory.withoutAnnoyingPopups());
 
         LoginPage loginPage = new LoginPage(driver);
@@ -43,9 +46,12 @@ public class SauceDemoTest extends AbstractTest {
 
         HomePage homePage = loginPage.login("Greetings_Neo o_^ ", "secret_sauce");
 
-        Assert.assertFalse(homePage.isPageOpened(2));
+        softAssert.assertEquals(loginPage.getErrorText(), "Epic sadface: Username and password do not match any user in this service");
 
-        LOGGER.error("In case of unsuccessful login attempt will fetch error message : {}", loginPage.getErrorText());
+        Assert.assertFalse(homePage.isPageOpened(2));
+        Assert.assertTrue(loginPage.isPageOpened(2));
+
+        softAssert.assertAll();
 
     }
 
@@ -114,9 +120,9 @@ public class SauceDemoTest extends AbstractTest {
         HomePage homePageAfterCheckout = checkoutCompletePage.clickBackHomeButton();
         Assert.assertTrue(homePageAfterCheckout.isPageOpened(), "Homepage did not open");
 
-        homePage.openBurgerMenu();
+        homePageAfterCheckout.openBurgerMenu();
 
-        LoginPage logOutLogInPage = homePage.getBurgerMenu().clickLogout();
+        LoginPage logOutLogInPage = homePageAfterCheckout.getBurgerMenu().clickLogout();
 
         Assert.assertTrue(logOutLogInPage.isPageOpened(), "Logout did not happen");
 
@@ -151,8 +157,10 @@ public class SauceDemoTest extends AbstractTest {
 
         List<String> priceListOfAllItems = new ArrayList<>();
 
-        for (int i = 0; i < homePage.getProductCards().size(); i++) {
-            priceListOfAllItems.add(homePage.getProductCards().get(i).getProductPrice().getText());
+        List<ProductCard> productCards = homePage.getProductCards();
+
+        for (ProductCard productCard : productCards) {
+            priceListOfAllItems.add(productCard.getProductPrice().getText());
 
         }
 
@@ -168,11 +176,15 @@ public class SauceDemoTest extends AbstractTest {
 
         CartPage cartPage = homePage.openShoppingCart();
 
+        Assert.assertTrue(cartPage.isPageOpened(), "Cart page did not open");
+
         List<String> cartPriceList = new ArrayList<>();
 
         for (int i = 0; i < cartPage.getCartItems().size(); i++) {
             cartPriceList.add(cartPage.getCartItems().get(i).getItemPriceText());
         }
+
+        softAssert.assertEquals(cartPage.getCartItemCount(), 2, "Incorrect number of products in the cart. There should be 2 products in the cart");
 
         // 4.
 
@@ -195,6 +207,57 @@ public class SauceDemoTest extends AbstractTest {
         Assert.assertTrue(logOutLogInPage.isPageOpened(), "Logout did not happen");
 
         softAssert.assertAll();
+
+    }
+
+
+    @Test(description = "This is test for checkout validation failure recovery successful continuation")
+    public void checkoutValidationFailureRecoverySuccessfulContinuation (){
+
+        SoftAssert softAssert = new SoftAssert();
+
+        WebDriver driver = getDriver("default", ChromeOptionsFactory.withoutAnnoyingPopups());
+
+        // login
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.open();
+        HomePage homePage = loginPage.login("standard_user", "secret_sauce");
+        homePage.waitUntilCardsPresent();
+        Assert.assertTrue(homePage.isPageOpened(), "Homepage did not open");
+
+        CartPage cartPage = homePage.openShoppingCart();
+        Assert.assertTrue(cartPage.isPageOpened(), "Cart page did not open");
+
+        CheckoutInfoPage checkoutInfoPage = cartPage.clickCheckoutButton();
+        Assert.assertTrue(checkoutInfoPage.isPageOpened(), "Checkout Info page did not open");
+
+
+        checkoutInfoPage.continueCheckoutExpectingFailure("NEO NOO, THERE'S NO TIME HURRY UP ", "THE MATRIX GOT US.dasq...a....", "");
+
+        Assert.assertTrue(checkoutInfoPage.isPageOpened(), "If another page opened and did not stay on same, checkout with invalid data submit got through");
+
+        softAssert.assertEquals(checkoutInfoPage.getErrorText(), "Error: Postal Code is required");
+
+        CheckoutOverviewPage checkoutOverviewPage = checkoutInfoPage.continueCheckout("YOU HAD DEJA VU", "IT IS BUG IN THE MATRIX", "IT SHOWS FUTURE, HURRY UP");
+        Assert.assertTrue(checkoutOverviewPage.isPageOpened(), "Checkout Overview page did not open");
+
+        CheckoutCompletePage checkoutCompletePage = checkoutOverviewPage.clickFinishButton();
+        Assert.assertTrue(checkoutCompletePage.isPageOpened(), "Checkout Complete page did not open");
+
+        HomePage homePageAfterCheckout = checkoutCompletePage.clickBackHomeButton();
+        Assert.assertTrue(homePageAfterCheckout.isPageOpened(), "Homepage did not open");
+
+        homePageAfterCheckout.openBurgerMenu();
+
+        LoginPage logOutLogInPage = homePageAfterCheckout.getBurgerMenu().clickLogout();
+
+        Assert.assertTrue(logOutLogInPage.isPageOpened(), "Logout did not happen");
+
+        softAssert.assertAll();
+
+        System.out.println(" Knock, knock, Neo. ");
+
+
 
     }
 

@@ -85,7 +85,7 @@ public class HomePage extends AbstractPage {
     public void waitUntilCardsPresent() {
         new WebDriverWait(getDriver(), Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofMillis(200))
-                .until(d -> !productCards.isEmpty());
+                .until(d -> productCards.size() == 6);
     }
 
 }
