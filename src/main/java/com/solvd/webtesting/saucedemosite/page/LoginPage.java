@@ -44,20 +44,10 @@ public class LoginPage extends AbstractPage {
         return new HomePage(getDriver());
     }
 
-    // for the positive path — login expected to succeed
     public HomePage login(String username, String password) {
         typeUsername(username);
         typePassword(password);
-        loginButton.click();
-        return new HomePage(getDriver());
-    }
-
-    // for negative tests — login expected to fail, stay on this page
-    public LoginPage loginExpectingFailure(String username, String password) {
-        typeUsername(username);
-        typePassword(password);
-        loginButton.click();
-        return this;
+        return clickLoginButton();
     }
 
 }
