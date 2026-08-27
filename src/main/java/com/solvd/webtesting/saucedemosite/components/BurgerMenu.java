@@ -36,7 +36,12 @@ public class BurgerMenu extends AbstractUIObject {
         about.click();
     }
 
+    public ExtendedWebElement getLogout() {
+        return logout;
+    }
+
     public LoginPage clickLogout() {
+        getLogout().isElementPresent(5);
         logout.click();
         return new LoginPage(getDriver());
     }
