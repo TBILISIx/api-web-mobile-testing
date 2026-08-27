@@ -2,11 +2,12 @@ package com.solvd.api.github.get;
 
 import com.solvd.api.github.GetUserFollowers;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
+import com.zebrunner.carina.core.AbstractTest;
 import com.zebrunner.carina.utils.config.Configuration;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
-public class GetUserFollowersTest {
+public class GetUserFollowersTest extends AbstractTest {
 
     @Test(description = "Expects 403 status code because users access token has no permission to view followers")
 
