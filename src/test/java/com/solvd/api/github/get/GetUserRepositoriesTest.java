@@ -2,11 +2,12 @@ package com.solvd.api.github.get;
 
 import com.solvd.api.github.GetUserRepositories;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
+import com.zebrunner.carina.core.AbstractTest;
 import com.zebrunner.carina.utils.config.Configuration;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
-public class GetUserRepositoriesTest {
+public class GetUserRepositoriesTest extends AbstractTest {
 
     @Test(description = "Expects hospital repo from users repositories")
 

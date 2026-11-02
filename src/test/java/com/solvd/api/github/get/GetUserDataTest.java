@@ -2,12 +2,13 @@ package com.solvd.api.github.get;
 
 import com.solvd.api.github.GetUserData;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
+import com.zebrunner.carina.core.AbstractTest;
 import com.zebrunner.carina.utils.config.Configuration;
 import org.hamcrest.Matchers;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.annotations.Test;
 
-public class GetUserDataTest {
+public class GetUserDataTest extends AbstractTest {
 
     private static final int GIORGI_USER_ID = 125301130;
 
